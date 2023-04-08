@@ -6,7 +6,7 @@ import { validSign } from "@/utils/signValidation";
 import { useSignIn } from "@/hooks/useAuth";
 import RootLayout from "./layout";
 
-export default function signPage() {
+export default function SignPage() {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
