@@ -14,7 +14,6 @@ export const authMutations = {
         (record) => record.get("u").properties
       );
       if (!user) throw new Error("Email or password is not correct!");
-      console.log(user);
       if (user.userType !== "Admin") throw new Error("You are not the admin!");
       const correctPassword = await comparePassword(password, user.password);
       if (!correctPassword)
