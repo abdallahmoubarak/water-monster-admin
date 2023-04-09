@@ -7,28 +7,40 @@ import Settings from "./settings";
 import UserPage from "./userPage";
 
 export default function Home() {
-  const [active, setActive] = useState("Users");
-  const [page, setPage] = useState<string>("Containers");
+  const [page, setPage] = useState<string>("Users");
   const [currentContainer, setCurrentContainer] = useState<any>({});
+  const [user, setUser] = useState<any>({});
 
   return (
     <>
       <Head>
         <title>{page}</title>
       </Head>
-      <RootLayout hasNav={true} active={active} setActive={setActive}>
-        {active === "Users" && <Users />}
-        {active === "Containers" && (
+
+      {page === "Users" && (
+        <RootLayout hasNav={true} active={page} setActive={setPage}>
+          <Users setPage={setPage} setUser={setUser} />
+        </RootLayout>
+      )}
+      {page === "Containers" && (
+        <RootLayout hasNav={true} active={page} setActive={setPage}>
           <Containers
             setPage={setPage}
             setCurrentContainer={setCurrentContainer}
           />
-        )}
-      </RootLayout>
-      <RootLayout>
-        {active === "Settings" && <Settings />}
-        {active === "User" && <UserPage />}
-      </RootLayout>
+        </RootLayout>
+      )}
+
+      {page === "Settings" && (
+        <Settings setPage={setPage} currentContainer={currentContainer} />
+      )}
+      {page === "User" && (
+        <UserPage
+          setPage={setPage}
+          user={user}
+          setCurrentContainer={setCurrentContainer}
+        />
+      )}
     </>
   );
 }

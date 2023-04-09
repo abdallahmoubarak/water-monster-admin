@@ -1,9 +1,13 @@
 import { useGetUsers } from "@/hooks/useUser";
 import Loading from "./Loading";
 
-export default function Users() {
+export default function Users({ setPage, setUser }: any) {
   const { data: users, isLoading, isFetching } = useGetUsers();
 
+  const handleOnClick = (user: any) => {
+    setPage && setPage("User");
+    setUser && setUser(user);
+  };
   return (
     <>
       {isLoading && <Loading />}
@@ -12,6 +16,7 @@ export default function Users() {
           <div
             key={i}
             className="flex flex-[1_1_20rem] p-2 gap-4 border border-light_gray rounded-xl shadow-md cursor-pointer"
+            onClick={() => handleOnClick(user)}
           >
             <div className="dark-profile-background min-w-[4rem] min-h-[4rem] border max-h-16 border-primary rounded-full"></div>
             <div className="flex justify-between pr-2 w-full items-center">

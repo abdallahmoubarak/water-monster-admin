@@ -1,5 +1,5 @@
 import { useAllContainers } from "@/hooks/useContainer";
-import Container from "../Container";
+import ContainerCard from "../ContainerCard";
 
 export default function Containers({ setPage, setCurrentContainer }: any) {
   const { data: containers, isLoading, isFetching } = useAllContainers();
@@ -8,7 +8,7 @@ export default function Containers({ setPage, setCurrentContainer }: any) {
     <>
       <div className="flex flex-wrap items-center justify-center gap-4 py-6 px-2">
         {containers?.map((container: any, i: number) => (
-          <Container
+          <ContainerCard
             key={i}
             view={false}
             container={container}

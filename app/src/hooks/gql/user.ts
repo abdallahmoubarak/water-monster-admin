@@ -48,6 +48,7 @@ export const updateProfileUrlMutation = gql`
 export const getUsersQuery = gql`
   query {
     users {
+      id
       name
       phone
       email

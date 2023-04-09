@@ -37,9 +37,10 @@ const getUserContainers = async (id: string) => {
 
 export const useUserContainers = (id: string) => {
   return useQuery({
-    queryKey: ["Containers"],
+    queryKey: ["UserContainers"],
     queryFn: () => getUserContainers(id),
-    onSuccess: (res) => localStorage.setItem("Containers", JSON.stringify(res)),
+    onSuccess: (res) =>
+      localStorage.setItem("UserContainers", JSON.stringify(res)),
   });
 };
 
