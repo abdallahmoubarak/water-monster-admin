@@ -51,7 +51,12 @@ export const getUsersQuery = gql`
       name
       phone
       email
-      updatedAt
+      containersAggregate {
+        count
+      }
+      viewContainersAggregate {
+        count
+      }
     }
   }
 `;

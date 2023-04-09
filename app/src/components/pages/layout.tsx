@@ -13,9 +13,7 @@ export default function RootLayout({
       <TopBar hasImg={hasImg} setActive={setActive} />
 
       <div
-        className={`h-screen overflow-auto ${
-          hasNav && "height: calc(100vh - 8rem)"
-        }`}
+        className={` overflow-auto ${hasNav ? "h-screen pb-32" : "h-screen"}`}
       >
         {children}
       </div>
