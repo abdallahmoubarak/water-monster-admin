@@ -35,8 +35,7 @@ export default function Index() {
           </div>
         </div>
       )}
-      <Home />
-      {/* {currentUser?.role === "Admin" ? <Home /> : <Sign />} */}
+      {currentUser?.userType === "Admin" ? <Home /> : <Sign />}
     </>
   );
 }

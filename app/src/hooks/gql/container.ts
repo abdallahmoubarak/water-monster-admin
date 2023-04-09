@@ -2,7 +2,7 @@ import { gql } from "graphql-request";
 
 export const allContainersQuery = gql`
   query {
-    containers(options: { sort: [{ updatedAt: ASC }] }) {
+    containers {
       name
       location {
         latitude

@@ -139,20 +139,20 @@ export default function NavBar({
         }
 
         .nav-ul li:nth-child(1).active ~ .circule {
-          transform: translateX(calc(25vw - 4rem));
-          -webkit-transform: translateX(calc(25vw - 4rem));
-          -moz-transform: translateX(calc(25vw - 4rem));
-          -ms-transform: translateX(calc(25vw - 4rem));
-          -o-transform: translateX(calc(25vw - 4rem));
+          transform: translateX(calc(25vw - 4.05rem));
+          -webkit-transform: translateX(calc(25vw - 4.05rem));
+          -moz-transform: translateX(calc(25vw - 4.05rem));
+          -ms-transform: translateX(calc(25vw - 4.05rem));
+          -o-transform: translateX(calc(25vw - 4.05rem));
           ${styles.transitionAll3s};
         }
 
         .nav-ul li:nth-child(2).active ~ .circule {
-          transform: translateX(calc(50vw - 2.15rem));
-          -webkit-transform: translateX(calc(50vw - 2.15rem));
-          -moz-transform: translateX(calc(50vw - 2.15rem));
-          -ms-transform: translateX(calc(50vw - 2.15rem));
-          -o-transform: translateX(calc(50vw - 2.15rem));
+          transform: translateX(calc(50vw - 2.05rem));
+          -webkit-transform: translateX(calc(50vw - 2.05rem));
+          -moz-transform: translateX(calc(50vw - 2.05rem));
+          -ms-transform: translateX(calc(50vw - 2.05rem));
+          -o-transform: translateX(calc(50vw - 2.05rem));
           ${styles.transitionAll3s};
         }
 
@@ -169,7 +169,7 @@ export default function NavBar({
   );
 }
 const navItems: { name: string; img: any }[] = [
-  { name: "Statistics", img: "/svg/statistics.svg" },
+  { name: "Map", img: "/svg/mapmarker.svg" },
   { name: "Users", img: "/svg/users.svg" },
   { name: "Containers", img: "/svg/containers.svg" },
 ];

@@ -3,6 +3,8 @@ import RootLayout from "./layout";
 import Users from "../Users";
 import Containers from "./containers";
 import Head from "next/head";
+import Settings from "./settings";
+import UserPage from "./userPage";
 
 export default function Home() {
   const [active, setActive] = useState("Users");
@@ -22,6 +24,10 @@ export default function Home() {
             setCurrentContainer={setCurrentContainer}
           />
         )}
+      </RootLayout>
+      <RootLayout>
+        {active === "Settings" && <Settings />}
+        {active === "User" && <UserPage />}
       </RootLayout>
     </>
   );

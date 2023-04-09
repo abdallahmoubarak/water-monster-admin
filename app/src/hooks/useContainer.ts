@@ -13,7 +13,10 @@ import {
 
 const getAllContainers = async () => {
   const res: any = await graphQLClient.request(allContainersQuery);
-  return res?.containers;
+  return res?.containers.sort(
+    (a: any, b: any) =>
+      Number(new Date(b.updatedAt)) - Number(new Date(a.updatedAt))
+  );
 };
 
 export const useAllContainers = () => {

@@ -26,12 +26,6 @@ export const userDefs = gql`
   }
 
   type Mutation {
-    signUp(
-      name: String!
-      email: String!
-      password: String!
-      userType: String!
-    ): AuthRes!
     signIn(email: String!, password: String!): AuthRes!
   }
 
