@@ -13,7 +13,7 @@ import {
 
 const updateName = async ({ id, name }: userTypes) => {
   const variables = { id, name };
-  const res = await graphQLClient.request(updateNameMutation, variables);
+  const res: any = await graphQLClient.request(updateNameMutation, variables);
   return res?.updateUsers?.users[0];
 };
 
@@ -32,7 +32,7 @@ export const useUpdateName = ({ setAlertMsg }: setAlertMsgType) => {
 
 const updatePhone = async ({ id, phone }: userTypes) => {
   const variables = { id, phone };
-  const res = await graphQLClient.request(updatePhoneMutation, variables);
+  const res: any = await graphQLClient.request(updatePhoneMutation, variables);
   return res?.updateUsers?.users[0];
 };
 
@@ -51,7 +51,7 @@ export const useUpdatePhone = ({ setAlertMsg }: setAlertMsgType) => {
 /*********************** use get contacts hook ***********************/
 
 const getUsers = async () => {
-  const res = await graphQLClient.request(getUsersQuery);
+  const res: any = await graphQLClient.request(getUsersQuery);
   return res?.users;
 };
 
