@@ -4,10 +4,7 @@ export const allContainersQuery = gql`
   query {
     containers {
       name
-      location {
-        latitude
-        longitude
-      }
+      location
       id
       height
       distance
