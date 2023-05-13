@@ -2,7 +2,7 @@ import { useAllContainers } from "@/hooks/useContainer";
 import ContainerCard from "../ContainerCard";
 
 export default function Containers({ setPage, setCurrentContainer }: any) {
-  const { data: containers, isLoading, isFetching } = useAllContainers();
+  const { data: containers, isFetching } = useAllContainers();
 
   return (
     <>

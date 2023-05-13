@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { styles } from "@/utils/styles";
 
 export default function NavBar({
   activePage = "Containers",
@@ -7,15 +6,17 @@ export default function NavBar({
 }: navProps) {
   return (
     <>
-      <div className="nav-container">
-        <ul className="nav-ul">
+      <div className="fixed bottom-0 bg-primary text-white w-full max-w-full">
+        <ul className="nav-ul flex items-center justify-evenly gap-8 relative">
           {navItems.map((item, i) => (
             <li
               key={i}
-              className={`nav-li ${activePage === item.name && "active"}`}
+              className={`nav-li flex flex-col justify-center items-center cursor-pointer relative p-4  ${
+                activePage === item.name && "active"
+              }`}
               onClick={() => !!setActivePage && setActivePage(item.name)}
             >
-              <div className="nav-icon">
+              <div className="nav-icon w-[2.2rem] h-[2.2rem]">
                 <Image
                   src={item.img || ""}
                   alt={item.name || ""}
@@ -28,52 +29,15 @@ export default function NavBar({
           ))}
           {Boolean(navItems.filter((item) => item.name === activePage)[0]) && (
             <>
-              <div className="circule-back"></div>
-              <div className="circule"></div>
+              <div className="absolute top-[-0.4rem] left-0 w-full h-[0.4rem] bg-white z-0"></div>
+              <div className="circule bg-primary"></div>
             </>
           )}
         </ul>
       </div>
       <style jsx>{`
-        .nav-container {
-          background: ${styles.primaryColor};
-          color: white;
-          position: fixed;
-          bottom: 0;
-          width: 100%;
-          max-width: 100%;
-        }
-
         .circule-back {
           content: "";
-          position: absolute;
-          top: -0.4rem;
-          left: 0;
-          width: 100%;
-          height: 0.4rem;
-          background-color: white;
-          z-index: 0;
-        }
-
-        .nav-ul {
-          ${styles.flexAligncenter};
-          justify-content: space-evenly;
-          gap: 2rem;
-          position: relative;
-        }
-
-        .nav-li {
-          ${styles.flexBothcenter};
-          ${styles.flexColumn};
-          cursor: pointer;
-          position: relative;
-          padding: 1rem;
-        }
-
-        .nav-icon {
-          width: 2.2rem;
-          height: 2.2rem;
-          ${styles.transitionAll3s};
         }
 
         .nav-ul li.active .nav-icon {
@@ -82,13 +46,11 @@ export default function NavBar({
           -moz-transform: translateY(-2.1rem);
           -ms-transform: translateY(-2.1rem);
           -o-transform: translateY(-2.1rem);
-          ${styles.transitionAll3s};
           z-index: 4;
         }
 
         .nav-ul li.active .nav-text {
           opacity: 1;
-          ${styles.transitionAll3s};
         }
 
         .nav-text {
@@ -107,7 +69,6 @@ export default function NavBar({
           top: -50%;
           width: 4rem;
           height: 4rem;
-          background: ${styles.primaryColor};
           border-radius: 50%;
           border: 5px solid white;
           left: 0;
@@ -144,7 +105,6 @@ export default function NavBar({
           -moz-transform: translateX(calc(25vw - 4.05rem));
           -ms-transform: translateX(calc(25vw - 4.05rem));
           -o-transform: translateX(calc(25vw - 4.05rem));
-          ${styles.transitionAll3s};
         }
 
         .nav-ul li:nth-child(2).active ~ .circule {
@@ -153,7 +113,6 @@ export default function NavBar({
           -moz-transform: translateX(calc(50vw - 2.05rem));
           -ms-transform: translateX(calc(50vw - 2.05rem));
           -o-transform: translateX(calc(50vw - 2.05rem));
-          ${styles.transitionAll3s};
         }
 
         .nav-ul li:nth-child(3).active ~ .circule {
@@ -162,7 +121,6 @@ export default function NavBar({
           -moz-transform: translateX(calc(75vw - 0.05rem));
           -ms-transform: translateX(calc(75vw - 0.05rem));
           -o-transform: translateX(calc(75vw - 0.05rem));
-          ${styles.transitionAll3s};
         }
       `}</style>
     </>
