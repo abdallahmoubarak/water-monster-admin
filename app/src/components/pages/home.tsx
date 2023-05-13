@@ -5,6 +5,7 @@ import Containers from "./containers";
 import Head from "next/head";
 import Settings from "./settings";
 import UserPage from "./userPage";
+import Map from "./map";
 
 export default function Home() {
   const [page, setPage] = useState<string>("Users");
@@ -30,7 +31,11 @@ export default function Home() {
           />
         </RootLayout>
       )}
-
+      {page === "Map" && (
+        <RootLayout hasNav={true} active={page} setActive={setPage}>
+          <Map />
+        </RootLayout>
+      )}
       {page === "Settings" && (
         <Settings setPage={setPage} currentContainer={currentContainer} />
       )}
